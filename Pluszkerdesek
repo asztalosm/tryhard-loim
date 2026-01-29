@@ -1,0 +1,239 @@
+questions.put("16. Mire használjuk a System.out.println()-t?", Map.of(
+        "A", "Bemenet olvasására",
+        "B", "Fájl mentésére",
+        "C", "Szöveg kiírására a konzolra",
+        "D", "Hibakezelésre",
+        "correct", "C"
+));
+
+questions.put("17. Melyik ciklus fut le legalább egyszer?", Map.of(
+        "A", "for",
+        "B", "while",
+        "C", "do-while",
+        "D", "foreach",
+        "correct", "C"
+));
+
+questions.put("18. Melyik kulcsszóval állítjuk le a ciklust?", Map.of(
+        "A", "stop",
+        "B", "exit",
+        "C", "break",
+        "D", "return",
+        "correct", "C"
+));
+
+questions.put("19. Mit csinál a return utasítás?", Map.of(
+        "A", "Kilép a ciklusból",
+        "B", "Visszaad egy értéket és kilép a metódusból",
+        "C", "Hibát dob",
+        "D", "Új objektumot hoz létre",
+        "correct", "B"
+));
+
+questions.put("20. Melyik láthatóság a legszűkebb?", Map.of(
+        "A", "public",
+        "B", "protected",
+        "C", "default",
+        "D", "private",
+        "correct", "D"
+));
+
+questions.put("21. Melyik adattípus logikai értéket tárol?", Map.of(
+        "A", "int",
+        "B", "boolean",
+        "C", "char",
+        "D", "String",
+        "correct", "B"
+));
+
+questions.put("22. Mit jelent a static kulcsszó?", Map.of(
+        "A", "Az objektumhoz tartozik",
+        "B", "Nem lehet módosítani",
+        "C", "Az osztályhoz tartozik",
+        "D", "Nem örökölhető",
+        "correct", "C"
+));
+
+questions.put("23. Melyik NEM Java kulcsszó?", Map.of(
+        "A", "class",
+        "B", "extends",
+        "C", "include",
+        "D", "return",
+        "correct", "C"
+));
+
+questions.put("24. Mire való a Scanner osztály?", Map.of(
+        "A", "Fájl törlésére",
+        "B", "Felhasználói bemenet olvasására",
+        "C", "Grafikus felület készítésére",
+        "D", "Szálak kezelésére",
+        "correct", "B"
+));
+
+questions.put("25. Melyik adattípus tárol több karaktert?", Map.of(
+        "A", "char",
+        "B", "String",
+        "C", "boolean",
+        "D", "double",
+        "correct", "B"
+));
+
+questions.put("26. Mit csinál az if utasítás?", Map.of(
+        "A", "Ciklust hoz létre",
+        "B", "Feltételt vizsgál",
+        "C", "Osztályt definiál",
+        "D", "Metódust hív",
+        "correct", "B"
+));
+
+questions.put("27. Melyik a helyes tömb deklaráció?", Map.of(
+        "A", "int numbers;",
+        "B", "int numbers[];",
+        "C", "array int numbers;",
+        "D", "numbers int[];",
+        "correct", "B"
+));
+
+questions.put("28. Mit csinál a for ciklus?", Map.of(
+        "A", "Feltételt vizsgál egyszer",
+        "B", "Ismétlést hajt végre",
+        "C", "Hibát kezel",
+        "D", "Objektumot hoz létre",
+        "correct", "B"
+));
+
+questions.put("29. Melyik operátor az egyenlőséget vizsgálja?", Map.of(
+        "A", "=",
+        "B", "!=",
+        "C", "==",
+        "D", ">=",
+        "correct", "C"
+));
+
+questions.put("30. Melyik utasítás állítja le az egész programot?", Map.of(
+        "A", "break",
+        "B", "continue",
+        "C", "System.exit()",
+        "D", "return",
+        "correct", "C"
+));
+
+questions.put("31. Mi történik, ha egy metódus nem ad vissza értéket?", Map.of(
+        "A", "null-t ad vissza",
+        "B", "0-t ad vissza",
+        "C", "void a visszatérési típusa",
+        "D", "fordítási hiba",
+        "correct", "C"
+));
+
+questions.put("32. Melyik állítás igaz az osztályokra?", Map.of(
+        "A", "Csak egy konstruktora lehet",
+        "B", "Nem tartalmazhat metódust",
+        "C", "Lehetnek adattagjai és metódusai",
+        "D", "Nem példányosítható",
+        "correct", "C"
+));
+
+questions.put("33. Mi a konstruktor feladata?", Map.of(
+        "A", "Metódus meghívása",
+        "B", "Objektum inicializálása",
+        "C", "Memória felszabadítása",
+        "D", "Öröklés végrehajtása",
+        "correct", "B"
+));
+
+questions.put("34. Melyik igaz az öröklésre?", Map.of(
+        "A", "Egy osztály több osztályt örökölhet",
+        "B", "Csak interfészeknél létezik",
+        "C", "Kód újrafelhasználást tesz lehetővé",
+        "D", "Nem lehet metódust felüldefiniálni",
+        "correct", "C"
+));
+
+questions.put("35. Mi a metódus túlterhelés?", Map.of(
+        "A", "Azonos név, eltérő paraméterlista",
+        "B", "Azonos név, eltérő visszatérési típus",
+        "C", "Különböző név, azonos paraméter",
+        "D", "Statikus metódus felüldefiniálása",
+        "correct", "A"
+));
+
+questions.put("36. Melyik állítás igaz az ArrayList-re?", Map.of(
+        "A", "Fix méretű",
+        "B", "Nem enged duplikátumot",
+        "C", "Dinamikusan növekszik",
+        "D", "Kulcs–érték párokat tárol",
+        "correct", "C"
+));
+
+questions.put("37. Mi a különbség a while és a for ciklus között?", Map.of(
+        "A", "A while gyorsabb",
+        "B", "A for csak számokra jó",
+        "C", "A for ciklusnál ismert az iterációk száma",
+        "D", "Nincs különbség",
+        "correct", "C"
+));
+
+questions.put("38. Melyik dob automatikusan NullPointerException-t?", Map.of(
+        "A", "new Object()",
+        "B", "null.equals(\"test\")",
+        "C", "\"test\".length()",
+        "D", "new String()",
+        "correct", "B"
+));
+
+questions.put("39. Melyik igaz a String-re?", Map.of(
+        "A", "Módosítható",
+        "B", "Primitív típus",
+        "C", "Immutábilis",
+        "D", "Nem objektum",
+        "correct", "C"
+));
+
+questions.put("40. Mi történik, ha nincs saját konstruktor?", Map.of(
+        "A", "Fordítási hiba",
+        "B", "Nem lehet példányosítani",
+        "C", "A Java létrehoz egy alapértelmezett konstruktort",
+        "D", "null lesz az objektum",
+        "correct", "C"
+));
+
+questions.put("41. Melyik állítás igaz a static metódusokra?", Map.of(
+        "A", "Objektum kell a hívásukhoz",
+        "B", "Felüldefiniálhatók",
+        "C", "Az osztályhoz tartoznak",
+        "D", "Nem hívhatók meg",
+        "correct", "C"
+));
+
+questions.put("42. Mit jelent az encapsulation?", Map.of(
+        "A", "Adatok elrejtése és védelme",
+        "B", "Többszálúság",
+        "C", "Öröklés",
+        "D", "Metódus túlterhelés",
+        "correct", "A"
+));
+
+questions.put("43. Melyik kulcsszóval dobunk kivételt?", Map.of(
+        "A", "throws",
+        "B", "catch",
+        "C", "throw",
+        "D", "exception",
+        "correct", "C"
+));
+
+questions.put("44. Melyik állítás igaz az interface-re?", Map.of(
+        "A", "Lehet konstruktora",
+        "B", "Tartalmazhat absztrakt metódusokat",
+        "C", "Nem lehet implementálni",
+        "D", "Nem lehet public",
+        "correct", "B"
+));
+
+questions.put("45. Mit csinál a switch utasítás?", Map.of(
+        "A", "Ciklust hoz létre",
+        "B", "Feltételek közti választást végez",
+        "C", "Objektumot hoz létre",
+        "D", "Kivételt kezel",
+        "correct", "B"
+));
