@@ -1,0 +1,128 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class JavaQuestions {
+    public static void main(String[] args) {
+        Map<String, Map<String, String>> questions = new HashMap<>();
+
+        questions.put("1. Mi a Java?", Map.of(
+                "A", "Programozási nyelv",
+                "B", "Operációs rendszer",
+                "C", "Adatbázis",
+                "D", "Böngésző",
+                "correct", "A"
+        ));
+
+        questions.put("2. Melyik kulcsszóval hozol létre objektumot?", Map.of(
+                "A", "class",
+                "B", "new",
+                "C", "void",
+                "D", "static",
+                "correct", "B"
+        ));
+
+        questions.put("3. Melyik adattípus egész szám?", Map.of(
+                "A", "double",
+                "B", "float",
+                "C", "int",
+                "D", "char",
+                "correct", "C"
+        ));
+
+        questions.put("4. Melyik a belépési pont egy Java programban?", Map.of(
+                "A", "start()",
+                "B", "run()",
+                "C", "main()",
+                "D", "init()",
+                "correct", "C"
+        ));
+
+        questions.put("5. Melyik kulcsszóval örököl egy osztály?", Map.of(
+                "A", "implements",
+                "B", "extends",
+                "C", "inherits",
+                "D", "super",
+                "correct", "B"
+        ));
+
+        questions.put("6. Melyik NEM primitív adattípus?", Map.of(
+                "A", "int",
+                "B", "boolean",
+                "C", "String",
+                "D", "char",
+                "correct", "C"
+        ));
+
+        questions.put("7. Melyik kollekció nem enged duplikátumot?", Map.of(
+                "A", "List",
+                "B", "ArrayList",
+                "C", "Set",
+                "D", "Map",
+                "correct", "C"
+        ));
+
+        questions.put("8. Mit jelent az OOP?", Map.of(
+                "A", "Object Oriented Programming",
+                "B", "Open Operation Protocol",
+                "C", "Object Optional Process",
+                "D", "Only One Program",
+                "correct", "A"
+        ));
+
+        questions.put("9. Melyik kivétel futásidőben történik?", Map.of(
+                "A", "IOException",
+                "B", "SQLException",
+                "C", "NullPointerException",
+                "D", "ClassNotFoundException",
+                "correct", "C"
+        ));
+
+        questions.put("10. Melyik kulcsszóval kezelünk kivételt?", Map.of(
+                "A", "catch",
+                "B", "error",
+                "C", "throwable",
+                "D", "fix",
+                "correct", "A"
+        ));
+
+        questions.put("11. Mi a JVM szerepe?", Map.of(
+                "A", "Java kód fordítása gépi kódra",
+                "B", "Java futtatása platformfüggetlenül",
+                "C", "GUI készítése",
+                "D", "Memória felszabadítása",
+                "correct", "B"
+        ));
+
+        questions.put("12. Melyik interfész a kollekciók gyökere?", Map.of(
+                "A", "List",
+                "B", "Set",
+                "C", "Collection",
+                "D", "Map",
+                "correct", "C"
+        ));
+
+        questions.put("13. Mi a különbség az == és az equals() között?", Map.of(
+                "A", "Nincs különbség",
+                "B", "Az == referencia, az equals tartalom",
+                "C", "Az equals gyorsabb",
+                "D", "Az == csak Stringnél működik",
+                "correct", "B"
+        ));
+
+        questions.put("14. Mit csinál a garbage collector?", Map.of(
+                "A", "Optimalizálja a kódot",
+                "B", "Felszabadítja a nem használt memóriát",
+                "C", "Kezeli a szálakat",
+                "D", "Fordítja a programot",
+                "correct", "B"
+        ));
+
+        questions.put("15. Mi az immutábilis objektum?", Map.of(
+                "A", "Amit nem lehet példányosítani",
+                "B", "Amit nem lehet módosítani létrehozás után",
+                "C", "Ami mindig static",
+                "D", "Ami nem lehet null",
+                "correct", "B"
+        ));
+    }
+}
