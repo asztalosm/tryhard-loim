@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
@@ -19,16 +20,16 @@ public class Main {
 
     public static void setQuestionsFromTxts() {
         //feltölt egy arraylistet kérdésekkel és válaszokkal, arraylistből majd törölni fogunk
-        File easyQuestionsFile = new File("C:\\Users\\23d_suhajn.NYIRSZIKSZI\\tryhard-loim\\src\\easyQuestions");
-        File mediumQuestionsFile = new File("C:\\Users\\23d_suhajn.NYIRSZIKSZI\\tryhard-loim\\srs\\mediumQuestions");
-        File hardQuestionsFile = new File("C:\\Users\\23d_suhajn.NYIRSZIKSZI\\tryhard-loim\\src\\hardQuestions");
+        File easyQuestionsFile = new File("\\src\\easyQuestions");
+        File mediumQuestionsFile = new File("\\src\\mediumQuestions");
+        File hardQuestionsFile = new File("\\src\\hardQuestions");
         try (Scanner fileReader = new Scanner(easyQuestionsFile)) {
             while (fileReader.hasNextLine()) {
                 String data = fileReader.nextLine();
                 String[] questionData = data.split("><"); //we split like this so if we were to write a code snippet the data won't get fucked
                 easyQuestions.add(new HashMap<>() {{
                     put("Question", questionData[0]);
-                    put("Answer1", questionData[1]);
+                    put("CorrectAnswer", questionData[1]);
                     put("Answer2", questionData[2]);
                     put("Answer3", questionData[3]);
                     put("Answer4", questionData[4]);
@@ -42,20 +43,66 @@ public class Main {
     }
 
 
-
     public static void fillGameQuestions() {
-        char[] letters = {'A', 'B', 'C', 'D'}; //its not used yet
-        for (int i = 0; i < easyQuestions.size() - 1; i++) { //easy questions
+        for (int i = 0; i < 5; i++) {
             int randomInt = (int) (Math.random() * easyQuestions.size());
-            String correctAnswer = null;
-            System.out.print((i + 1) + " kérdés: " + easyQuestions.get(randomInt).get("Question") + "\n");
-            for (String key: easyQuestions.get(randomInt).keySet()) { //this just prints out every possible answer for the given question
-                if (!(key.equals("Question")) && !(key.equals("Correct"))) {
-                    System.out.println(easyQuestions.get(randomInt).get(key));
+            while (gameQuestions.contains(easyQuestions.get(randomInt))) {
+                randomInt = (int) (Math.random() * easyQuestions.size());
+            }
+            gameQuestions.add(easyQuestions.get(randomInt));
+
+        }
+        mainGame();
+    }
+
+    public static void mainGame() {
+        ArrayList<String> letters = new ArrayList<>(Arrays.asList("A", "B", "C", "D"));
+        ArrayList<String> answers = new ArrayList<>();
+        String correctAnswer;
+
+        for (int i = 0; i < gameQuestions.size(); i++) {
+            answers.clear();
+            correctAnswer = "";
+
+            System.out.println((i + 1) + ". kérdés: " + gameQuestions.get(i).get("Question"));
+
+            for (String key : gameQuestions.get(i).keySet()) {
+                if (!key.equals("Correct") && !key.equals("Question")) {
+                    answers.add(gameQuestions.get(i).get(key));
+                }
+                if (key.equals("CorrectAnswer")) {
+                    correctAnswer = gameQuestions.get(i).get(key);
                 }
             }
+
+            Collections.shuffle(answers);
+
+            for (int j = 0; j < answers.size(); j++) {
+                System.out.println(letters.get(j) + ". " + answers.get(j));
+            }
+
+            System.out.print("Melyik a megoldás? ");
+            String userInput = scn.nextLine().toUpperCase();
+            int chosenIndex = letters.indexOf(userInput);
+
+            if (chosenIndex == -1) {
+                System.out.println("Érvénytelen válasz! Próbáld újra.");
+                i--;
+                continue;
+            }
+
+            if (answers.get(chosenIndex).equals(correctAnswer)) {
+                System.out.println(TF_GREEN + "Helyes!" + TF_RESET);
+            } else {
+                System.out.println(TF_RED + "Vesztettél! A helyes válasz: " + correctAnswer + TF_RESET);
+                gameQuestions.clear();
+                easyQuestions.clear();
+                menu();
+                return;
             }
         }
+    }
+
 
     public static void playgame() {
         int points = 0;
