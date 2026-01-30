@@ -19,9 +19,9 @@ public class Main {
 
     public static void setQuestionsFromTxts() {
         //feltölt egy arraylistet kérdésekkel és válaszokkal, arraylistből majd törölni fogunk
-        File easyQuestionsFile = new File("src/easyQuestions");
-        File mediumQuestionsFile = new File("src/mediumQuestions");
-        File hardQuestionsFile = new File("src/hardQuestions");
+        File easyQuestionsFile = new File("C:\\Users\\23d_suhajn.NYIRSZIKSZI\\tryhard-loim\\src\\easyQuestions");
+        File mediumQuestionsFile = new File("C:\\Users\\23d_suhajn.NYIRSZIKSZI\\tryhard-loim\\srs\\mediumQuestions");
+        File hardQuestionsFile = new File("C:\\Users\\23d_suhajn.NYIRSZIKSZI\\tryhard-loim\\src\\hardQuestions");
         try (Scanner fileReader = new Scanner(easyQuestionsFile)) {
             while (fileReader.hasNextLine()) {
                 String data = fileReader.nextLine();
@@ -44,11 +44,18 @@ public class Main {
 
 
     public static void fillGameQuestions() {
-        //todo make a loop for every question
-        for (int i = 0; i < 5; i++) { //easy questions
-
+        char[] letters = {'A', 'B', 'C', 'D'}; //its not used yet
+        for (int i = 0; i < easyQuestions.size() - 1; i++) { //easy questions
+            int randomInt = (int) (Math.random() * easyQuestions.size());
+            String correctAnswer = null;
+            System.out.print((i + 1) + " kérdés: " + easyQuestions.get(randomInt).get("Question") + "\n");
+            for (String key: easyQuestions.get(randomInt).keySet()) { //this just prints out every possible answer for the given question
+                if (!(key.equals("Question")) && !(key.equals("Correct"))) {
+                    System.out.println(easyQuestions.get(randomInt).get(key));
+                }
+            }
+            }
         }
-    }
 
     public static void playgame() {
         int points = 0;
