@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
@@ -20,15 +19,32 @@ public class Main {
 
     public static void setQuestionsFromTxts() {
         //feltölt egy arraylistet kérdésekkel és válaszokkal, arraylistből majd törölni fogunk
-        File easyQuestionsFile = new File("\\src\\easyQuestions");
-        File mediumQuestionsFile = new File("\\src\\mediumQuestions");
-        File hardQuestionsFile = new File("\\src\\hardQuestions");
+        File easyQuestionsFile = new File("src/easyQuestions");
+        File mediumQuestionsFile = new File("src/mediumQuestions");
+        File hardQuestionsFile = new File("src/hardQuestions");
         try (Scanner fileReader = new Scanner(easyQuestionsFile)) {
             while (fileReader.hasNextLine()) {
                 String data = fileReader.nextLine();
                 String[] questionData = data.split("><"); //we split like this so if we were to write a code snippet the data won't get fucked
                 easyQuestions.add(new HashMap<>() {{
-                    put("Question", questionData[0]);
+                    put("Question", (TF_YELLOW + questionData[0] + TF_RESET));
+                    put("CorrectAnswer", questionData[1]);
+                    put("Answer2", questionData[2]);
+                    put("Answer3", questionData[3]);
+                    put("Answer4", questionData[4]);
+                    put("Correct", questionData[5]);
+                }});
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Nem található a kérdéseket tartalmazó fájl"); //get data from the internet or maybe a failsafe questionnaire embedded in the code
+        }
+        //n i guess we'll do this for all arrays, pretty ugly code but i cant be arsed
+        try (Scanner fileReader = new Scanner(mediumQuestionsFile)) {
+            while (fileReader.hasNextLine()) {
+                String data = fileReader.nextLine();
+                String[] questionData = data.split("><");
+                mediumQuestions.add(new HashMap<>() {{
+                    put("Question", (TF_YELLOW + questionData[0] + TF_RESET));
                     put("CorrectAnswer", questionData[1]);
                     put("Answer2", questionData[2]);
                     put("Answer3", questionData[3]);
@@ -38,19 +54,47 @@ public class Main {
             }
         } catch (FileNotFoundException e) {
             System.out.println("Nem található a kérdéseket tartalmazó fájl");
-            //get data from the internet or maybe a failsafe questionnaire embedded in the code
+        }
+        try (Scanner fileReader = new Scanner(hardQuestionsFile)) {
+            while (fileReader.hasNextLine()) {
+                String data = fileReader.nextLine();
+                String[] questionData = data.split("><");
+                hardQuestions.add(new HashMap<>() {{
+                    put("Question", (TF_YELLOW + questionData[0] + TF_RESET));
+                    put("CorrectAnswer", questionData[1]);
+                    put("Answer2", questionData[2]);
+                    put("Answer3", questionData[3]);
+                    put("Answer4", questionData[4]);
+                    put("Correct", questionData[5]);
+                }});
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Nem található a kérdéseket tartalmazó fájl");
         }
     }
 
 
     public static void fillGameQuestions() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) { //ja ezt valszeg jobb lenne úgy megcsinálni, hogy hozzáadunk, majd kitöröljük a listából. namindegy, majd fixelem
             int randomInt = (int) (Math.random() * easyQuestions.size());
             while (gameQuestions.contains(easyQuestions.get(randomInt))) {
                 randomInt = (int) (Math.random() * easyQuestions.size());
             }
             gameQuestions.add(easyQuestions.get(randomInt));
-
+        }
+        for (int i = 0; i < 5; i++) {
+            int randomInt = (int) (Math.random() * mediumQuestions.size());
+            while (gameQuestions.contains(mediumQuestions.get(randomInt))) {
+                randomInt = (int) (Math.random() * mediumQuestions.size());
+            }
+            gameQuestions.add(mediumQuestions.get(randomInt));
+        }
+        for (int i = 0; i < 5; i++) {
+            int randomInt = (int) (Math.random() * hardQuestions.size());
+            while (gameQuestions.contains(hardQuestions.get(randomInt))) {
+                randomInt = (int) (Math.random() * hardQuestions.size());
+            }
+            gameQuestions.add(hardQuestions.get(randomInt));
         }
         mainGame();
     }

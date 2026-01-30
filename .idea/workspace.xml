@@ -8,7 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/easyQuestions" beforeDir="false" afterPath="$PROJECT_DIR$/src/easyQuestions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hardQuestions" beforeDir="false" afterPath="$PROJECT_DIR$/src/hardQuestions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediumQuestions" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediumQuestions" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/nando/Desktop/tryhard-loim",
+    "last_opened_file_path": "C:/Users/Marci/IdeaProjects/tryhard-loim",
     "onboarding.tips.debug.path": "C:/Users/Marci/IdeaProjects/untitled/src/Main.java",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
@@ -60,13 +61,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Downloads\Iskola\tryhard-loim\src" />
     </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
