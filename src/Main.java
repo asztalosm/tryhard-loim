@@ -73,28 +73,23 @@ public class Main {
         }
     }
 
+    public static Map<String, String> getRandomArrayItem(ArrayList<Map<String, String>> arraylist) {
+        int arraySize = arraylist.size();
+        int randomNumber = (int) (Math.random() * arraySize);
+        Map<String, String> arrayValue = arraylist.get(randomNumber);
+        arraylist.remove(randomNumber);
+        return arrayValue;
+    }
 
     public static void fillGameQuestions() {
-        for (int i = 0; i < 5; i++) { //ja ezt valszeg jobb lenne úgy megcsinálni, hogy hozzáadunk, majd kitöröljük a listából. namindegy, majd fixelem
-            int randomInt = (int) (Math.random() * easyQuestions.size());
-            while (gameQuestions.contains(easyQuestions.get(randomInt))) {
-                randomInt = (int) (Math.random() * easyQuestions.size());
-            }
-            gameQuestions.add(easyQuestions.get(randomInt));
+        for (int i = 0; i < 5; i++) {
+            gameQuestions.add(getRandomArrayItem(easyQuestions));
         }
         for (int i = 0; i < 5; i++) {
-            int randomInt = (int) (Math.random() * mediumQuestions.size());
-            while (gameQuestions.contains(mediumQuestions.get(randomInt))) {
-                randomInt = (int) (Math.random() * mediumQuestions.size());
-            }
-            gameQuestions.add(mediumQuestions.get(randomInt));
+            gameQuestions.add(getRandomArrayItem(mediumQuestions));
         }
         for (int i = 0; i < 5; i++) {
-            int randomInt = (int) (Math.random() * hardQuestions.size());
-            while (gameQuestions.contains(hardQuestions.get(randomInt))) {
-                randomInt = (int) (Math.random() * hardQuestions.size());
-            }
-            gameQuestions.add(hardQuestions.get(randomInt));
+            gameQuestions.add(getRandomArrayItem(hardQuestions));
         }
         mainGame();
     }
