@@ -1,6 +1,33 @@
-Question1><Answer><Incorrect1><Incorrect2><Incorrect3><1
-Valamilyen kérdés><Helyes válasz, de vesszővel><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Valamilyen kérdés2><Helyes válasz, de vesszővel2><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Question3><Answer><Incorrect1><Incorrect2><Incorrect3><1
-Valamilyen kérdés4><Helyes válasz, de vesszővel><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Valamilyen kérdés5><Helyes válasz, de vesszővel2><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
+Mi az int?><Szám típus><Szöveg><Logikai érték><Fájl><1
+Mi a boolean?><Logikai típus><Szám><Szöveg><Tömb><1
+Mire való a változó?><Adat tárolására><Rajzolásra><Fordításra><Futtatásra><1
+Melyik érték logikai?><true><10><"igen"><2.5><1
+Melyik érték hamis?><false><true><1><"nem"><1
+Melyik egy egész szám?><8><3.14><"8"><false><1
+Melyik egy tizedes szám?><4.5><4><"4.5"><true><1
+Melyik jel az egyenlőség vizsgálat?><==><=><!=><=><1
+Melyik jel nem egyenlő?><!=><==><=><<=><1
+Melyik jel nagyobb vagy egyenlő?><>=><=><>><<><1
+Melyik jel kisebb vagy egyenlő?><<=><<><>><>=><1
+Melyik jel az ÉS?><&&><||><!><&><1
+Melyik jel a VAGY?><||><&&><!><|><1
+Melyik jel a NEM?><!><&&><||><!=><1
+Melyik egy helyes változó név?><szam1><1szam><szám!><int><1
+Melyik érték szöveg?><"alma"><alma><5><true><1
+Melyik jel fűz össze szöveget?><+><*><-></><1
+Mi történik a ++ jellel?><Nő eggyel><Csökken eggyel><Szorzódik><Osztódik><1
+Mi történik a -- jellel?><Csökken eggyel><Nő eggyel><Szorzódik><Nullázódik><1
+Melyik egy komment?><// szoveg><== szoveg><!! szoveg><++ szoveg><1
+Melyik kulcsszó döntést hoz?><if><for><while><int><1
+Melyik kulcsszó ismétel?><while><if><boolean><String><1
+Melyik feltétel igaz?><5 > 3><2 > 4><3 == 4><false><1
+Melyik feltétel hamis?><3 > 5><5 > 3><true><1 == 1><1
+Melyik egy tömb deklaráció?><int[] szamok><int szamok><String szamok[]><boolean szamok><1
+Melyik index az első elem?><0><1><-1><2><1
+Melyik jel választja el a paramétereket?><,><;><.><:><1
+Melyik zárja le az utasítást?><;><,><.><:><1
+Melyik kulcsszó szakítja meg a ciklust?><break><stop><end><exit><1
+Melyik kulcsszó ugrik a következő körre?><continue><break><next><skip><1
+Melyik érték null?><null><0><false><""><1
+Melyik nem logikai érték?><10><true><false><!true><1
+Melyik egy szám művelet?><5 + 3><"a" + "b"><true && false><!true><1

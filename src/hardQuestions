@@ -1,6 +1,46 @@
-Question1><Answer><Incorrect1><Incorrect2><Incorrect3><1
-Valamilyen kérdés><Helyes válasz, de vesszővel><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Valamilyen kérdés2><Helyes válasz, de vesszővel2><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Legalább ötnek kell lennie1><Helyes válasz><helytelen1><helytelen2><helytelen3><1
-Legalább ötnek kell lennie1><Helyes válasz><helytelen1><helytelen2><helytelen3><1
-Legalább ötnek kell lennie1><Helyes válasz><helytelen1><helytelen2><helytelen3><1
+Mi az öröklődés Java-ban?><Az egyik osztály átveszi egy másik osztály tulajdonságait><A számok összeadása><Adatok törlése><Szöveg formázása><1
+Mire való az `interface` Java-ban?><Speciális szerződés osztályoknak><Számok összeadására><Fájlok olvasására><Szöveg kiírására><1
+Mit csinál a `final` kulcsszó egy változóval?><Értékét nem lehet módosítani><Értékét duplázza><Értéket nulláz><Értéket összead><1
+Mi a különbség a `==` és az `.equals()` között Java-ban?><`==` referenciát hasonlít, `.equals()` tartalmat><Mindkettő ugyanazt csinálja><`==` tartalmat hasonlít, `.equals()` referenciát><Mindkettő logikai értéket ad><1
+Mire való a `static` kulcsszó?><Az elem osztály szintű, nem példány szintű lesz><A változó automatikusan növekszik><Fájlokat olvas><Ciklusok számát növeli><1
+Melyik kivételkezelő blokk fut le mindig Java-ban?><finally><catch><try><throw><1
+Mit jelent a `throw` kulcsszó Java-ban?><Kivételt dob><Változót hoz létre><Metódust hív><Szöveget ír ki><1
+Mi történik, ha `ArrayIndexOutOfBoundsException` lép fel?><Tömbön kívüli indexhez próbáltunk hozzáférni><Null értéket ad vissza><Program automatikusan javul><Szöveget ír ki><1
+Melyik kulcsszóval hozunk létre generikus típust Java-ban?><<T>><int><String><class><1
+Mit csinál a `super` kulcsszó Java-ban?><Szülő osztály metódusát vagy konstruktorát hívja meg><Új objektumot hoz létre><Változót növel><Feltételt vizsgál><1
+Melyik interfész része a `Collections.sort()` metódusnak?><List><Map><Set><Queue><1
+Melyik a helyes lambda kifejezés Java-ban?><(x) -> x * 2><x = 2><x + 2><function x><1
+Mire való a `synchronized` kulcsszó Java-ban?><Szálbiztos műveletet biztosít><Új objektumot hoz létre><Metódust töröl><Szöveget ír ki><1
+Mi a különbség a `StringBuilder` és a `String` között?><StringBuilder módosítható, String nem><StringBuilder csak számot tárol><StringBuilder osztály, String metódus><Mindkettő ugyanaz><1
+Melyik kulcsszó jelenti a hibadobást metódusban?><throws><throw><try><catch><1
+Mi a Java Reflection célja?><Futás közben információ lekérése osztályokról és metódusokról><Fájlok olvasása><Számolás><Szöveg formázása><1
+Melyik az érvényes enum deklaráció Java-ban?><enum Nap {HÉTFŐ, KEDD, SZERDA}><enum Nap = 1,2,3><enum Nap[] = {"H","K"}><enum Nap = "HÉTFŐ"><1
+Mit csinál a `transient` kulcsszó Java-ban?><Megakadályozza a mező sorosítását><Automatikusan inicializál><Feltételt ellenőriz><Szöveget ír ki><1
+Mi történik, ha egy metódus `abstract` osztályban van deklarálva?><A metódust a leszármazott osztályban kell implementálni><A metódus automatikusan fut><A metódus törlődik><A metódus kiírja a nevét><1
+Melyik kulcsszó jelzi, hogy egy osztály nem örökölhető?><final><static><abstract><interface><1
+Mit jelent a `volatile` kulcsszó Java-ban?><A változó értéke mindig friss, több szál számára látható><Értékét nem lehet módosítani><Metódust hív><Ciklust állít le><1
+Mire való a `package` kulcsszó Java-ban?><Csomagokat hoz létre és szervez><Változót hoz létre><Metódust hív><Szöveget ír ki><1
+Mit csinál a `this` kulcsszó Java-ban?><Az aktuális objektumra hivatkozik><Új objektumot hoz létre><Változót töröl><Metódust hív><1
+Melyik kulcsszó jelzi a futás közbeni típusellenőrzést Java-ban?><instanceof><if><for><class><1
+Melyik kulcsszó hoz létre új objektumot Java-ban?><new><create><make><add><1
+Melyik jel az logikai tagadás Java-ban?><!><&&><||><%%><1
+Melyik szó deklarál absztrakt metódust?><abstract><final><static><class><1
+Melyik szó jelzi a csomagot Java-ban?><package><import><class><main><1
+Melyik kulcsszó biztosít interfész implementációt osztályban?><implements><extends><import><interface><1
+Melyik jel az AND operátor Java-ban?><&&><||><!><><1
+Melyik jel az OR operátor Java-ban?><||><&&><!><><1
+Melyik kulcsszó jelzi a konstruktor hívását szülő osztályból?><super><this><parent><main><1
+Melyik kulcsszó jelzi a metódus felülírását Java-ban?><@Override><@Overload><@Deprecated><@SuppressWarnings><1
+Melyik kulcsszó teszi a metódust absztrakttá osztályban?><abstract><final><static><private><1
+Melyik kulcsszó jelzi a konstans értéket Java-ban?><final><static><abstract><const><1
+Melyik kulcsszó jelzi a láthatóságot osztályon belül package szinten?><protected><public><private><final><1
+Melyik kulcsszó jelzi, hogy egy osztály egy másik osztályból származik?><extends><implements><interface><super><1
+Melyik kulcsszó jelzi a kivétel típusát Java-ban metódusnál?><throws><throw><try><catch><1
+Melyik kulcsszó teszi a változót osztály szintűvé?><static><final><volatile><abstract><1
+Melyik kulcsszó teszi a metódust osztály szintűvé?><static><final><abstract><private><1
+Melyik kulcsszó jelzi, hogy a változó több szál között látható legyen?><volatile><transient><final><static><1
+Melyik kulcsszó teszi a változót sorosíthatatlanná?><transient><volatile><static><final><1
+Melyik kulcsszó jelzi, hogy egy osztály nem példányosítható közvetlenül?><abstract><final><static><interface><1
+Melyik kulcsszó jelzi a végrehajtási blokkot kivétel esetén?><catch><finally><try><throw><1
+Melyik kulcsszó jelzi a végrehajtási blokkot mindig?><finally><catch><try><throw><1
+Melyik kulcsszó jelzi, hogy egy annotációt figyelmen kívül hagyunk?><@SuppressWarnings><@Override><@Deprecated><@FunctionalInterface><1

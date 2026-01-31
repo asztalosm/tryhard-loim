@@ -1,6 +1,48 @@
-Question1><Answer><Incorrect1><Incorrect2><Incorrect3><1
-Valamilyen kérdés1><Helyes válasz, de vesszővel><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Valamilyen kérdés2><Helyes válasz, de vesszővel2><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Question2><Answer><Incorrect1><Incorrect2><Incorrect3><1
-Valamilyen kérdés3><Helyes válasz, de vesszővel><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
-Valamilyen kérdés4><Helyes válasz, de vesszővel2><helytelen válasz1><helytelen válasz2><helytelen válasz3><1
+Mi a Java?><Programozási nyelv><Állat><Autó><Játék><1
+Mire való a Java?><Programok írására><Főzésre><Alvásra><Rajzolásra><1
+Melyik szóval kezdődik egy Java program?><class><dog><play><run><1
+Mit csinál a System.out.println?><Kiír szöveget><Zenét játszik><Rajzol><Számol><1
+Milyen jel zár le egy sort Java-ban?><;><,><.><:><1
+Melyik egy szám Java-ban?><5><kutya><alma><autó><1
+Melyik egy szöveg Java-ban?><"szia"><5><true><null><1
+Melyik kulcsszó jelenti az igazat?><true><false><maybe><ok><1
+Melyik kulcsszó jelenti a hamisat?><false><true><igen><nem><1
+Melyik jel az egyenlő?><=><+><-><*><1
+Melyik egy változó neve lehet?><szam><2szam><szám!><class><1
+Melyik szó jelenti a szám típust?><int><text><word><char><1
+Melyik szó jelenti a szöveg típust?><String><int><double><boolean><1
+Melyik egy betű?><'a'><12><"abc"><true><1
+Melyik egy egész szám?><10><3.5><"10"><true><1
+Melyik egy tizedes szám?><2.5><2><"2.5"><false><1
+Melyik szó ismétel?><for><if><class><int><1
+Melyik szó döntést hoz?><if><for><String><println><1
+Melyik jel nagyobb?><>><<><=><!><1
+Melyik jel kisebb?><<><>><=><*><1
+Melyik szóval írunk megjegyzést?><//><**><##><!!><1
+Melyik szó ír ki szöveget?><println><scan><read><write><1
+Melyik egy logikai érték?><true><5><"igen"><3.2><1
+Melyik nem szám?><"alma"><5><10><2><1
+Melyik szó jelenti az osztályt?><class><method><int><main><1
+Melyik a fő metódus neve?><main><start><run><go><1
+Melyik zárójel nyit egy blokkot?><{><}><(><)><1
+Melyik zárójel zár egy blokkot?><}><{><(><)><1
+Melyik zárójel kell a metódushoz?><()><{}><[]><< >><1
+Melyik egy tömb?><int[]><int><String><boolean><1
+Melyik jel az összeadás?><+><-><*></><1
+Melyik jel a kivonás?><-><+><*></><1
+Melyik jel a szorzás?><*><+><-></><1
+Melyik jel az osztás?></><*><+><-><1
+Melyik szó állít meg egy ciklust?><break><stop><end><finish><1
+Melyik szó folytatja a ciklust?><continue><again><next><loop><1
+Melyik szó hoz létre új dolgot?><new><make><add><put><1
+Melyik nem kulcsszó?><kutya><class><int><if><1
+Melyik jel komment?><//><==><!=><++><1
+Melyik jel növel eggyel?><++><--><+=><==><1
+Melyik jel csökkent eggyel?><--><++><+><-><1
+Melyik egy feltétel?><if><for><class><int><1
+Melyik egy ciklus?><for><if><String><boolean><1
+Melyik szó jelenti az igen-t?><true><false><null><0><1
+Melyik szó jelenti a nem-et?><false><true><1><yes><1
+Melyik egy Java fájl vége?><.java><.txt><.exe><.png><1
+Melyik egy érvényes String?><"hello"><hello><5><true><1
+Melyik egy szám típus?><int><String><boolean><class><1

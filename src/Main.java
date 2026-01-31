@@ -1,6 +1,6 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
+import java.net.*;
 
 public class Main {
     //text formatting global variables:
@@ -15,62 +15,48 @@ public class Main {
     public static ArrayList<Map<String, String>> mediumQuestions = new ArrayList<>();
     public static ArrayList<Map<String, String>> hardQuestions = new ArrayList<>();
     public static ArrayList<Map<String, String>> gameQuestions = new ArrayList<>();
+    int winnings = 0;
 
+    public static void loadQuestions(ArrayList<Map<String, String>> questionList, String source, boolean fromInternet) throws IOException {
+        BufferedReader br = null;
+        if (fromInternet) {
+            br = new BufferedReader(new InputStreamReader(new URL(source).openStream()));
+        }
+        else if (!fromInternet) {
+            br = new BufferedReader(new FileReader(source));
+        }
+        String line;
 
-    public static void setQuestionsFromTxts() {
-        //feltölt egy arraylistet kérdésekkel és válaszokkal, arraylistből majd törölni fogunk
+        while ((line = br.readLine()) != null) {
+            String[] data = line.split("><");
+            Map<String, String> question = new HashMap<>();
+            question.put("Question", TF_YELLOW + data[0] + TF_RESET);
+            question.put("CorrectAnswer", data[1]);
+            question.put("Answer2", data[2]);
+            question.put("Answer3", data[3]);
+            question.put("Answer4", data[4]);
+            question.put("Correct", data[5]);
+            questionList.add(question);
+        }
+        br.close();
+    }
+
+    public static void setQuestions() throws IOException { //self explanatory
         File easyQuestionsFile = new File("src/easyQuestions");
         File mediumQuestionsFile = new File("src/mediumQuestions");
         File hardQuestionsFile = new File("src/hardQuestions");
-        try (Scanner fileReader = new Scanner(easyQuestionsFile)) {
-            while (fileReader.hasNextLine()) {
-                String data = fileReader.nextLine();
-                String[] questionData = data.split("><"); //we split like this so if we were to write a code snippet the data won't get fucked
-                easyQuestions.add(new HashMap<>() {{
-                    put("Question", (TF_YELLOW + questionData[0] + TF_RESET));
-                    put("CorrectAnswer", questionData[1]);
-                    put("Answer2", questionData[2]);
-                    put("Answer3", questionData[3]);
-                    put("Answer4", questionData[4]);
-                    put("Correct", questionData[5]);
-                }});
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Nem található a kérdéseket tartalmazó fájl"); //get data from the internet or maybe a failsafe questionnaire embedded in the code
+
+        if (easyQuestionsFile.exists() && mediumQuestionsFile.exists() && hardQuestionsFile.exists()) {
+            loadQuestions(easyQuestions, "src/easyQuestions", false);
+            loadQuestions(mediumQuestions, "src/mediumQuestions", false);
+            loadQuestions(hardQuestions, "src/hardQuestions", false);
         }
-        //n i guess we'll do this for all arrays, pretty ugly code but i cant be arsed
-        try (Scanner fileReader = new Scanner(mediumQuestionsFile)) {
-            while (fileReader.hasNextLine()) {
-                String data = fileReader.nextLine();
-                String[] questionData = data.split("><");
-                mediumQuestions.add(new HashMap<>() {{
-                    put("Question", (TF_YELLOW + questionData[0] + TF_RESET));
-                    put("CorrectAnswer", questionData[1]);
-                    put("Answer2", questionData[2]);
-                    put("Answer3", questionData[3]);
-                    put("Answer4", questionData[4]);
-                    put("Correct", questionData[5]);
-                }});
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Nem található a kérdéseket tartalmazó fájl");
+        else {
+            loadQuestions(easyQuestions, "https://raw.githubusercontent.com/kriszhadvicefia/lomlQuestions/refs/heads/main/easyQuestions", true);
+            loadQuestions(mediumQuestions, "https://raw.githubusercontent.com/kriszhadvicefia/lomlQuestions/refs/heads/main/mediumQuestions", true);
+            loadQuestions(hardQuestions, "https://raw.githubusercontent.com/kriszhadvicefia/lomlQuestions/refs/heads/main/hardQuestions", true);
         }
-        try (Scanner fileReader = new Scanner(hardQuestionsFile)) {
-            while (fileReader.hasNextLine()) {
-                String data = fileReader.nextLine();
-                String[] questionData = data.split("><");
-                hardQuestions.add(new HashMap<>() {{
-                    put("Question", (TF_YELLOW + questionData[0] + TF_RESET));
-                    put("CorrectAnswer", questionData[1]);
-                    put("Answer2", questionData[2]);
-                    put("Answer3", questionData[3]);
-                    put("Answer4", questionData[4]);
-                    put("Correct", questionData[5]);
-                }});
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Nem található a kérdéseket tartalmazó fájl");
-        }
+
     }
 
     public static Map<String, String> getRandomArrayItem(ArrayList<Map<String, String>> arraylist) {
@@ -81,7 +67,7 @@ public class Main {
         return arrayValue;
     }
 
-    public static void fillGameQuestions() {
+    public static void fillGameQuestions() throws IOException {
         for (int i = 0; i < 5; i++) {
             gameQuestions.add(getRandomArrayItem(easyQuestions));
         }
@@ -94,7 +80,7 @@ public class Main {
         mainGame();
     }
 
-    public static void mainGame() {
+    public static void mainGame() throws IOException {
         ArrayList<String> letters = new ArrayList<>(Arrays.asList("A", "B", "C", "D"));
         ArrayList<String> answers = new ArrayList<>();
         String correctAnswer;
@@ -134,30 +120,22 @@ public class Main {
                 System.out.println(TF_GREEN + "Helyes!" + TF_RESET);
             } else {
                 System.out.println(TF_RED + "Vesztettél! A helyes válasz: " + correctAnswer + TF_RESET);
-                gameQuestions.clear();
-                easyQuestions.clear();
                 menu();
                 return;
             }
         }
     }
 
-
-    public static void playgame() {
-        int points = 0;
-        System.out.printf("Könnyű kérdések száma: %d%n", easyQuestions.size());
-        System.out.printf("Közepes kérdések száma: %d%n", mediumQuestions.size());
-        System.out.printf("Nehéz kérdések száma: %d%n", hardQuestions.size());
+    public static void playgame() throws IOException {
         fillGameQuestions();
 
     }
 
-    public static void menu() {
+    public static void menu() throws IOException {
         System.out.printf("%s\tLegyen ön is Milliomos v0.1%n%s", (TF_BOLD + TF_BLUE), (TF_RESET));
         System.out.println("[1] Játék kezdése");
         System.out.println("[2] Kilépés"); //maybe beállítások
-        setQuestionsFromTxts();
-        //setQuestionDictionary();
+        setQuestions();
         String menuUserOption;
         do {
             menuUserOption = String.valueOf(scn.nextLine().charAt(0));
@@ -170,8 +148,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         menu();
-
     }
 }
