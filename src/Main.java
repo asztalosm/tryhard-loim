@@ -22,7 +22,7 @@ public class Main {
         if (fromInternet) {
             br = new BufferedReader(new InputStreamReader(new URL(source).openStream()));
         }
-        else if (!fromInternet) {
+        else {
             br = new BufferedReader(new FileReader(source));
         }
         String line;
@@ -80,7 +80,12 @@ public class Main {
         mainGame();
     }
 
+
     public static void mainGame() throws IOException {
+        boolean splitter = true;
+        boolean audience = true;
+        boolean telephone = true;
+
         ArrayList<String> letters = new ArrayList<>(Arrays.asList("A", "B", "C", "D"));
         ArrayList<String> answers = new ArrayList<>();
         String correctAnswer;
@@ -105,9 +110,55 @@ public class Main {
             for (int j = 0; j < answers.size(); j++) {
                 System.out.println(letters.get(j) + ". " + answers.get(j));
             }
+            System.out.printf("%s %s %s %s%n", (splitter || audience || telephone) ? "Elérhető segítségek: " : "Nincsen több elérhető segítséged", (splitter) ? "[F]elező" :"", (audience) ? "[K]özönség": "", (telephone) ? "[T]elefon" : "");
 
-            System.out.print("Melyik a megoldás? ");
+            //hints
+
+            System.out.print("Melyik a megoldás?");
             String userInput = scn.nextLine().toUpperCase();
+            if (userInput.equals("F") && splitter) {
+                splitter = false;
+                for (int j = 0; j < answers.size(); j++) {
+                    if (!answers.get(j).equals(correctAnswer) && answers.size() > 2) {
+                        answers.remove(j);
+                    }
+                }
+                for (int j = 0; j < answers.size(); j++) {
+                    System.out.println(letters.get(j) + ". " + answers.get(j));
+                }
+
+            } else if (userInput.equals("K") && audience) {
+                audience = false;
+                int remainingPercentage = 100;
+                int correctPercentage;
+                int[] percentages = new int[answers.size()];
+                correctPercentage = (int) ((Math.random() * 60) + 30);
+                remainingPercentage -= correctPercentage;
+                for (int j = 0; j < answers.size(); j++) {
+                    if (answers.get(j).equals(correctAnswer)) {
+                        percentages[j] = correctPercentage;
+                    } else {
+                        percentages[j] = remainingPercentage - (int) (Math.random() * remainingPercentage);
+                        remainingPercentage -= percentages[j];
+                    }
+                    if (j == answers.size()-1 && !answers.get(j).equals(correctAnswer)) {
+                        percentages[j] = remainingPercentage;
+                    }
+                }
+                System.out.println((i + 1) + ". kérdés: " + gameQuestions.get(i).get("Question"));
+                for (int j = 0; j < answers.size(); j++) {
+                    System.out.println(letters.get(j) + ". " + answers.get(j) + " " + percentages[j] + "%");
+                }
+            }
+            else if (userInput.equals("T") && telephone) {
+                telephone = false;
+                boolean helyesValasz = ((Math.random() * 100) + 1) > 5;
+                //5% esély van, hogy random választ ad és nem segítséget
+                System.out.printf(TF_GREEN + "Józsi: szerintem a helyes válasz a %s%s%n%n", helyesValasz ? correctAnswer : letters.get((int) (Math.random() * letters.size())), TF_RESET);
+            }
+            System.out.print("Melyik a megoldás?");
+            userInput = scn.nextLine().toUpperCase();
+
             int chosenIndex = letters.indexOf(userInput);
 
             if (chosenIndex == -1) {
