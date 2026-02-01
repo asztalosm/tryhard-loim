@@ -15,7 +15,7 @@ public class Main {
     public static ArrayList<Map<String, String>> mediumQuestions = new ArrayList<>();
     public static ArrayList<Map<String, String>> hardQuestions = new ArrayList<>();
     public static ArrayList<Map<String, String>> gameQuestions = new ArrayList<>();
-    int winnings = 0;
+    static int winnings = 0;
 
     public static void loadQuestions(ArrayList<Map<String, String>> questionList, String source, boolean fromInternet) throws IOException {
         BufferedReader br = null;
@@ -41,7 +41,7 @@ public class Main {
         br.close();
     }
 
-    public static void setQuestions() throws IOException { //self explanatory
+    public static void setQuestions() throws IOException { //self-explanatory
         File easyQuestionsFile = new File("src/easyQuestions");
         File mediumQuestionsFile = new File("src/mediumQuestions");
         File hardQuestionsFile = new File("src/hardQuestions");
@@ -80,11 +80,25 @@ public class Main {
         mainGame();
     }
 
+    public static boolean askToContinue(int currWin) {
+        System.out.println("Szeretnéd befejezni és elvinni az eddigi " + currWin + " Ft-od? (i/n)");
+        String answer = scn.nextLine();
+
+        while (!answer.equalsIgnoreCase("i") && !answer.equalsIgnoreCase("n")) {
+            System.out.print("i/n: ");
+            answer = scn.nextLine();
+        }
+
+        return answer.equalsIgnoreCase("i");
+    }
 
     public static void mainGame() throws IOException {
         boolean splitter = true;
         boolean audience = true;
         boolean telephone = true;
+        boolean firstWinnings = false;
+        boolean secondWinnings = false;
+        boolean wonLastRound = false;
 
         ArrayList<String> letters = new ArrayList<>(Arrays.asList("A", "B", "C", "D"));
         ArrayList<String> answers = new ArrayList<>();
@@ -93,6 +107,17 @@ public class Main {
         for (int i = 0; i < gameQuestions.size(); i++) {
             answers.clear();
             correctAnswer = "";
+
+            if (i == 5 && !firstWinnings) {
+                firstWinnings = true;
+                winnings += 500000;
+                if (askToContinue(winnings)) break;
+
+            } else if (i == 10 && !secondWinnings) {
+                secondWinnings = true;
+                winnings += 4500000;
+                if (askToContinue(winnings)) break;
+            }
 
             System.out.println((i + 1) + ". kérdés: " + gameQuestions.get(i).get("Question"));
 
@@ -114,7 +139,7 @@ public class Main {
 
             //hints
 
-            System.out.print("Melyik a megoldás?");
+            System.out.print("Melyik a megoldás?: ");
             String userInput = scn.nextLine().toUpperCase();
             if (userInput.equals("F") && splitter) {
                 splitter = false;
@@ -156,8 +181,19 @@ public class Main {
                 //5% esély van, hogy random választ ad és nem segítséget
                 System.out.printf(TF_GREEN + "Józsi: szerintem a helyes válasz a %s%s%n%n", helyesValasz ? correctAnswer : letters.get((int) (Math.random() * letters.size())), TF_RESET);
             }
-            System.out.print("Melyik a megoldás?");
-            userInput = scn.nextLine().toUpperCase();
+
+
+            if (userInput.equals("F") || userInput.equals("T") || userInput.equals("K")) {
+                System.out.print("Melyik a megoldás?: ");
+                userInput = scn.nextLine().toUpperCase();
+                int chosenIndex = letters.indexOf(userInput);
+                while (answers.size() - 1 < letters.indexOf(userInput) || chosenIndex == -1) {
+                    System.out.println("Érvénytelen válasz! Próbáld újra.");
+                    System.out.print("Melyik a megoldás?: ");
+                    userInput = scn.nextLine().toUpperCase();
+                    chosenIndex = letters.indexOf(userInput);
+                }
+            }
 
             int chosenIndex = letters.indexOf(userInput);
 
@@ -167,19 +203,27 @@ public class Main {
                 continue;
             }
 
-            if (answers.get(chosenIndex).equals(correctAnswer)) {
+            if (answers.get(chosenIndex).equals(correctAnswer) && i == 14) {
                 System.out.println(TF_GREEN + "Helyes!" + TF_RESET);
-            } else {
+                winnings += 50000000;
+            } else if (!answers.get(chosenIndex).equals(correctAnswer)){
                 System.out.println(TF_RED + "Vesztettél! A helyes válasz: " + correctAnswer + TF_RESET);
+                gameQuestions.clear();
+                easyQuestions.clear();
+                mediumQuestions.clear();
+                hardQuestions.clear();
                 menu();
                 return;
+            } else if (answers.get(chosenIndex).equals(correctAnswer)) {
+                System.out.println(TF_GREEN + "Helyes!" + TF_RESET);
+
             }
         }
+        System.out.println("Gratulálok, Ön nyert " + winnings + "Ft-ot");
     }
 
     public static void playgame() throws IOException {
         fillGameQuestions();
-
     }
 
     public static void menu() throws IOException {
