@@ -1,5 +1,5 @@
 # tryhard-loim
-szettryhardolt legyen on is milliomos
+legyen on is milliomos
 
 
 # specs
