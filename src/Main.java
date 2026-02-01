@@ -205,7 +205,7 @@ public class Main {
 
             if (answers.get(chosenIndex).equals(correctAnswer) && i == 14) {
                 System.out.println(TF_GREEN + "Helyes!" + TF_RESET);
-                winnings += 50000000;
+                winnings += 45000000;
             } else if (!answers.get(chosenIndex).equals(correctAnswer)){
                 System.out.println(TF_RED + "Vesztettél! A helyes válasz: " + correctAnswer + TF_RESET);
                 gameQuestions.clear();
